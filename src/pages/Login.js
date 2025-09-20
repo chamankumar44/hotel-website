@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
+    
+    const uname = "";
 
  const [userName, setUserName] = useState("");
  const [password, setPassword] = useState("");
@@ -21,8 +23,10 @@ export default function Login() {
     }
 
     return (
+       
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+        
+            <form style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
                 <h2 style={{ textAlign: 'center' }}>Login</h2>
                 <input
                     type="text"
@@ -40,7 +44,7 @@ export default function Login() {
                     required
                     style={{ marginBottom: '10px', padding: '8px', fontSize: '16px' }}
                 />
-                <button type="submit" style={{ padding: '10px', fontSize: '16px', cursor: 'pointer' }}>Login</button>
+                <button onClick={handleLogin} type="submit" style={{ padding: '10px', fontSize: '16px', cursor: 'pointer' }}>Login</button>
             </form>
         </div>
     );

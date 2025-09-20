@@ -4,6 +4,8 @@ export default function SignUp() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+
+  
     
         const handleSignUp = (e) => {
             e.preventDefault();
