@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp';
 import BookingDetails from './pages/BookingDetails';
 import HomePage from './pages/HomePage';
 
+
 function App() {
   return (
 
@@ -16,6 +17,7 @@ function App() {
         <Link to="/" state={{ margin: "0 10px" }} >Login</Link>
         <Link to="/home" state={{ margin: "0 10px" }} > HOME</Link>
         <Link to="/signup" state={{ margin: "0 10px" }} > Sign Up</Link>
+        <Link to="/booking-details" state={{ margin: "0 10px" }} > Booking Details</Link>
 
       </nav>
 
@@ -25,7 +27,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />l̥
         <Route path="/register" element={<GuestRegister />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/bookingdetails" element={<BookingDetails />} />
+        <Route path="/booking-details" element={<BookingDetails />} />
 
       </Routes>
 
