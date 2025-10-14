@@ -1,39 +1,45 @@
 import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
-import GuestRegister from './pages/GuestRegister';
 import SignUp from './pages/SignUp';
 import BookingDetails from './pages/BookingDetails';
 import HomePage from './pages/HomePage';
+import AllUserData from './pages/AllUserData';
+import UpdateBooking from './pages/UpdateBooking';
+import UpdatedUser from './pages/UpdateUser';
+import Navbar from './Component/Navbar';
+import Register from './pages/Register'
+function Layout() {
+  const location = useLocation();
 
+  // Hide Navbar only on Login ("/")
+  const hideNavbar = location.pathname === "/";
 
-function App() {
   return (
-
-    <Router>
-      <nav style={{ textAlign: "center", margin: "20px" }}>
-
-        <Link to="/" state={{ margin: "0 10px" }} >Login</Link>
-        <Link to="/home" state={{ margin: "0 10px" }} > HOME</Link>
-        <Link to="/signup" state={{ margin: "0 10px" }} > Sign Up</Link>
-        <Link to="/booking-details" state={{ margin: "0 10px" }} > Booking Details</Link>
-
-      </nav>
+    <>
+      {/* Show Navbar on all except login */}
+      {!hideNavbar && <Navbar />}
 
       <Routes>
-
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<HomePage />} />l̥
-        <Route path="/register" element={<GuestRegister />} />
+        <Route path="/home" element={<HomePage />} />
+ 
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/booking-details" element={<BookingDetails />} />
-
+        <Route path="/bookingdetails" element={<BookingDetails />} />
+        <Route path="/alluserdata" element={<AllUserData />} />
+        <Route path="/updatebooking" element={<UpdateBooking />} />
+        <Route path="/updateuser" element={<UpdatedUser />} />
+        <Route path ="/register" element={<Register/>}/>
       </Routes>
-
-    </Router>
-
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <Layout />
+    </Router>
+  );
+}
